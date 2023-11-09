@@ -173,6 +173,7 @@ int star(char *regex, int depth)
 {
    print(depth, "star");
 
+   // Check for the presence of an element followed by a star symbol, and then increment the position marker if the previous conditions are met. 
    if (element(regex, depth + 1))
    {
       // Check if the star symbol is present
@@ -184,11 +185,8 @@ int star(char *regex, int depth)
       }
    }
 
-   return 0;
-
-   // Check for the presence of an element followed by a star symbol, and then increment the position marker if the previous conditions are met. 
    // Return 1 if the conditions are met, otherwise return 0.
-   //return (element(regex, depth + 1) && (regex[position] == '*') && (position++));
+   return 0;
 }
 
 // Check if the element is a character or group
@@ -196,6 +194,7 @@ int element(char *regex, int depth)
 {
    print(depth, "element");
 
+   // Check if the element is a group, or if it is a character
    if (group(regex, depth + 1))
    {
       return 1;
@@ -205,11 +204,8 @@ int element(char *regex, int depth)
       return 1;
    }
 
-   return 0;
-
-   // Check if the element is a group, or if it is a character
    // Return 1 if the element is a group or character, otherwise return 0
-   //return (group(regex, depth + 1) || character(regex, depth + 1));
+   return 0;
 }
 
 // Check if the element is a character
